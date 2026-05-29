@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Hotel Management System</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+    <style>
+
+        /* Global Reset */
+        *{
+            padding:0;
+            margin:0;
+            box-sizing:border-box;
+            font-family:'Poppins',sans-serif;
+        }
+
+        /* Color Variables */
+        :root{
+            --c1: #cfecf7;
+            --c2: #a0d9ef;
+            --c3: #62c1e5;
+            --c4: #b5d6e0;
+            --c5: #27214e;
+        }
+
+        html{
+            scroll-behavior:smooth;
+        }
+
+        body{
+            background:var(--c1);
+            color:var(--c5);
+            overflow-x:hidden;
+        }
+
+        img{
+            max-width:100%;
+            display:block;
+        }
+
+        .project-container{
+            width:90%;
+            max-width:1200px;
+            margin:auto;
+            padding:60px 0;
+        }
+
+        /* Header */
+        .project-header{
+            text-align:center;
+            margin-bottom:50px;
+        }
+
+        .project-header h1{
+            font-size:clamp(2.2rem,5vw,4rem);
+            margin-bottom:15px;
+            color:var(--c5);
+            line-height:1.2;
+        }
+
+        .project-header p{
+            font-size:clamp(0.95rem,2vw,1.1rem);
+            color:#444;
+            max-width:700px;
+            margin:auto;
+            line-height:1.7;
+        }
+
+        /* Banner */
+        .project-banner{
+            background:white;
+            border:2px solid var(--c2);
+            border-radius:25px;
+            padding:40px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            gap:40px;
+            box-shadow:0 10px 25px rgba(39,33,78,0.08);
+            flex-wrap:wrap;
+        }
+
+        .banner-text{
+            flex:1 1 500px;
+        }
+
+        .banner-text h2{
+            font-size:clamp(1.8rem,4vw,3rem);
+            margin-bottom:20px;
+            color:var(--c5);
+            line-height:1.3;
+        }
+
+        .banner-text p{
+            font-size:clamp(0.95rem,2vw,1.05rem);
+            line-height:1.9;
+            color:#444;
+            margin-bottom:25px;
+        }
+
+        /* Buttons */
+        .project-btns{
+            display:flex;
+            gap:15px;
+            flex-wrap:wrap;
+        }
+
+        .project-btns a{
+            text-decoration:none;
+            padding:13px 24px;
+            border-radius:12px;
+            font-weight:600;
+            transition:0.3s ease;
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+            min-width:150px;
+            text-align:center;
+        }
+
+        .live-btn{
+            background:var(--c3);
+            color:white;
+        }
+
+        .live-btn:hover{
+            background:var(--c5);
+        }
+
+        .github-btn{
+            border:2px solid var(--c3);
+            color:var(--c3);
+            background:white;
+        }
+
+        .github-btn:hover{
+            background:var(--c3);
+            color:white;
+        }
+
+        .project-btns a:hover{
+            transform:translateY(-4px);
+        }
+
+        /* Banner Icon */
+        .banner-icon{
+            flex:1 1 300px;
+            text-align:center;
+        }
+
+        .banner-icon i{
+            font-size:clamp(6rem,15vw,12rem);
+            color:var(--c3);
+        }
+
+        /* Section Title */
+        .section-title{
+            text-align:center;
+            font-size:clamp(2rem,4vw,3rem);
+            margin:80px 0 40px;
+            color:var(--c5);
+        }
+
+        /* Features */
+        .features-grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+            gap:25px;
+        }
+
+        .feature-card{
+            background:white;
+            padding:30px;
+            border-radius:20px;
+            border:2px solid var(--c2);
+            box-shadow:0 5px 15px rgba(39,33,78,0.08);
+            transition:0.3s ease;
+            height:100%;
+        }
+
+        .feature-card:hover{
+            transform:translateY(-6px);
+        }
+
+        .feature-card i{
+            font-size:35px;
+            color:var(--c3);
+            margin-bottom:15px;
+        }
+
+        .feature-card h3{
+            margin-bottom:10px;
+            font-size:22px;
+            color:var(--c5);
+        }
+
+        .feature-card p{
+            color:#555;
+            line-height:1.8;
+            font-size:15px;
+        }
+
+        /* Tech Stack */
+        .tech-stack{
+            display:flex;
+            justify-content:center;
+            flex-wrap:wrap;
+            gap:15px;
+            margin-top:30px;
+        }
+
+        .tech-stack span{
+            background:white;
+            padding:12px 22px;
+            border-radius:50px;
+            border:2px solid var(--c2);
+            box-shadow:0 4px 10px rgba(39,33,78,0.08);
+            font-weight:500;
+            color:var(--c5);
+            transition:0.3s ease;
+        }
+
+        .tech-stack span:hover{
+            transform:translateY(-3px);
+            background:var(--c3);
+            color:white;
+        }
+
+        /* Tablets */
+        @media(max-width:992px){
+
+            .project-banner{
+                padding:35px;
+                text-align:center;
+            }
+
+            .project-btns{
+                justify-content:center;
+            }
+
+            .banner-text{
+                flex:1 1 100%;
+            }
+
+            .banner-icon{
+                flex:1 1 100%;
+            }
+        }
+
+        /* Mobile */
+        @media(max-width:768px){
+
+            .project-container{
+                width:92%;
+                padding:40px 0;
+            }
+
+            .project-banner{
+                padding:25px;
+                gap:25px;
+                border-radius:20px;
+            }
+
+            .project-btns{
+                flex-direction:column;
+                width:100%;
+            }
+
+            .project-btns a{
+                width:100%;
+            }
+
+            .feature-card{
+                padding:25px;
+            }
+
+            .tech-stack{
+                gap:12px;
+            }
+
+            .tech-stack span{
+                width:100%;
+                text-align:center;
+            }
+        }
+
+        /* Small Mobile */
+        @media(max-width:480px){
+
+            .project-header{
+                margin-bottom:35px;
+            }
+
+            .banner-text p{
+                line-height:1.7;
+            }
+
+            .feature-card h3{
+                font-size:20px;
+            }
+
+            .feature-card p{
+                font-size:14px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="project-container">
+
+        <!-- Header -->
+        <div class="project-header">
+            <h1>Hotel Management System</h1>
+            <p>Modern hotel booking and management web application.</p>
+        </div>
+
+        <!-- Banner -->
+        <div class="project-banner">
+
+            <div class="banner-text">
+                <h2>Smart Hotel Booking Solution</h2>
+
+                <p>
+                    A responsive and user-friendly hotel management system developed to simplify room booking,
+                    customer management, billing, and hotel operations with a modern UI design.
+                </p>
+
+                <div class="project-btns">
+                    <a href="https://your-live-url-here.com" class="live-btn" target="_blank" rel="noreferrer">
+                        Live Demo
+                    </a>
+
+                    <a href="https://github.com/dev-sujitkr" class="github-btn" target="_blank" rel="noreferrer">
+                        GitHub
+                    </a>
+
+                    <a href="index.html" class="github-btn">
+                        Portfolio
+                    </a>
+                </div>
+            </div>
+
+            <div class="banner-icon">
+                <i class="fa-solid fa-hotel"></i>
+            </div>
+
+        </div>
+
+        <!-- Features -->
+        <h2 class="section-title">Project Features</h2>
+
+        <div class="features-grid">
+
+            <div class="feature-card">
+                <i class="fa-solid fa-bed"></i>
+                <h3>Room Booking</h3>
+                <p>Easy online room reservation system with availability management.</p>
+            </div>
+
+            <div class="feature-card">
+                <i class="fa-solid fa-users"></i>
+                <h3>Customer Management</h3>
+                <p>Manage guest details, check-in/check-out records, and booking history.</p>
+            </div>
+
+            <div class="feature-card">
+                <i class="fa-solid fa-money-bill-wave"></i>
+                <h3>Billing System</h3>
+                <p>Generate bills and manage payment details efficiently.</p>
+            </div>
+
+            <div class="feature-card">
+                <i class="fa-solid fa-chart-line"></i>
+                <h3>Admin Dashboard</h3>
+                <p>Track hotel operations, room status, and customer activities.</p>
+            </div>
+
+        </div>
+
+        <!-- Technologies -->
+        <h2 class="section-title">Technologies Used</h2>
+
+        <div class="tech-stack">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+            <span>React.js</span>
+            <span>PHP</span>
+            <span>My SQL</span>
+        </div>
+
+    </div>
+
+</body>
+</html>
